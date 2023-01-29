@@ -1,5 +1,5 @@
 # PUI homework
 
-Deployed website: sophiajwitt.github.io/Witt-PUI-HW/index.html
+Deployed website: https://sophiajwitt.github.io/Witt-PUI-HW/index.html
 
-Repository link: sophiajwitt.github.io/Witt-PUI-HW/
+Repository link: https://sophiajwitt.github.io/Witt-PUI-HW/
