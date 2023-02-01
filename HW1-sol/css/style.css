@@ -144,4 +144,8 @@ a:hover {
     background-color: yellow;
   }
 
+a.pic:hover {
+    text-decoration:none;
+    background-color:white;
+}
 
