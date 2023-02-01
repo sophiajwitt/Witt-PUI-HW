@@ -54,7 +54,8 @@ hr {
     font-weight: normal;
     font-family: sans-serif;
     margin-top: 20px;
-    text-align: center;
+    margin-left: 40%;
+    /* text-align: center; */
 }
 
 .main-product {
