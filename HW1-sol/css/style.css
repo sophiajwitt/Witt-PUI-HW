@@ -136,10 +136,12 @@ hr {
     font-size: 25px;
     font-family: sans-serif;
     font-weight: normal;
+    margin-left: 665px;
 }
 
 a:hover {
     text-decoration: none;
     background-color: yellow;
   }
+
 
