@@ -143,7 +143,7 @@ hr {
 
 a:hover {
     text-decoration: none;
-    background-color:yellow !important;
+    background-color:yellow;
   }
 
 a.pic:hover {
