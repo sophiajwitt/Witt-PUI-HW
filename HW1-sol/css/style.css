@@ -1,4 +1,4 @@
-
+/* logo and heading on all webpages */
 
 .logo {
     margin-top: 50px;
@@ -28,6 +28,8 @@ hr {
     font-weight: normal;
 }
 
+/* product page  */
+
 .title {
     font-size: 35px;
     font-family: Helvetica;
@@ -54,8 +56,9 @@ hr {
     font-family: sans-serif;
     margin-top: 20px;
     margin-left: 40%;
-    /* text-align: center; */
 }
+
+/* product detail page */
 
 .main-product {
     margin-top: 50px;
@@ -96,6 +99,8 @@ hr {
     font-size: 25px;
     font-family: sans-serif;
 }
+
+/* cart page */
 
 .cart-picture {
     margin-top: 50px;
@@ -141,10 +146,14 @@ hr {
     justify-items: center;
 }
 
+/* adds yellow highlight to hover */
+
 a:hover {
     text-decoration: none;
     background-color:yellow;
   }
+
+/* removes yellow highlight from logo */
 
 a.pic:hover {
     text-decoration:none;
