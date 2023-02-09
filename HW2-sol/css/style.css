@@ -160,6 +160,7 @@ hr {
 .cart-description {
     font-weight: normal;
     margin-top: 40px;
+    margin-bottom: 40px;
     margin-left: 5%;
     font-size: 25px;
     font-family: sans-serif;
@@ -175,39 +176,54 @@ hr {
 .cart-price {
     font-weight: normal;
     margin-top: 5%;
-    margin-left: 5%;
+    margin-left: 20px;
+    margin-right: 5%;
     font-size: 25px;
     font-family: sans-serif;
-    display: flex;
-    justify-content: flex-end;
+    float: right;
 }
 
 .hr2 {
     height: 5px;
     margin-right: 10px;
     background-color:black;
-    margin-left: 40%;
+    margin-left: 36%;
 }
 
 .checkout {
-    margin-left: 40%;
     border: 3px solid #000;
     display: inline-block;
     font-size: 25px;
     font-family: sans-serif;
     font-weight: normal;
-    margin-left: 46%;
-    margin-right: 50%;
-    text-align: center;
-    justify-items: center;
+    margin-left: 90%;
+    margin-right: 40px;
+    margin-bottom: 20px;
+}
+
+.total {
+    font-weight: normal;
+    font-size: 25px;
+    font-family: sans-serif;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+    float: right;
 }
 
 .container-f {
     display:flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    margin-left: 40%;
+    margin-left: 36%;
     margin-right: 5px;
+}
+
+.container-g {
+    margin-left: 48%;
+    display: flex;
+    justify-content: space-between;
 }
 
 /* adds yellow highlight to hover */
