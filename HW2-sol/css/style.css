@@ -173,14 +173,20 @@ hr {
     font-family: sans-serif;
 }
 
+.cart-price-low {
+    font-weight: normal;
+    margin-top: 5%;
+    font-size: 25px;
+    font-family: sans-serif;
+    margin-left: 328px;
+}
+
 .cart-price {
     font-weight: normal;
     margin-top: 5%;
-    margin-left: 20px;
-    margin-right: 5%;
     font-size: 25px;
     font-family: sans-serif;
-    float: right;
+    margin-left: 216px;
 }
 
 .hr2 {
