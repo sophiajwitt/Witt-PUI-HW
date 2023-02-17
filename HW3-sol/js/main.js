@@ -36,21 +36,28 @@ let packOptions = [
       size: '12',
       price: 10,
     }
-  ]; 
+  ];
   
-// retriving glaze and price from selection
-var selectGlaze = document.getElementbyId("glazingOptions");
+
+  
+// retriving glaze and price from glazing options
+// from: https://electrictoolbox.com/javascript-add-options-html-select/
+let selectGlaze = document.getElementById("glazingOptions");
 for (i in glazingOptions) {
   selectGlaze.options[selectGlaze.options.length] = new Option(glazingOptions[i].glaze,glazingOptions[i].price)
 }
 
-// retriving size and price from selection
-var selectSize = document.getElementbyId("packOptions");
+
+
+
+// retriving size and price from pack options
+// from: // from: https://electrictoolbox.com/javascript-add-options-html-select/
+var selectSize = document.getElementById("packOptions");
 for (i in packOptions) {
   selectSize.options[selectSize.options.length] = new Option(packOptions[i].size, packOptions[i].price)
 }
 
-let currPrice = document.getElementbyId('total');
+var currPrice = document.getElementById('total');
 var basePrice = 2.49;
 var glazingPrice = 0;
 var packPrice = 1;
