@@ -42,7 +42,7 @@ let packOptions = [
   
 // retriving glaze and price from glazing options
 // from: https://electrictoolbox.com/javascript-add-options-html-select/
-let selectGlaze = document.getElementById("glazingOptions");
+var selectGlaze = document.getElementById("glazingOptions");
 for (i in glazingOptions) {
   selectGlaze.options[selectGlaze.options.length] = new Option(glazingOptions[i].glaze,glazingOptions[i].price)
 }
@@ -57,11 +57,11 @@ for (i in packOptions) {
   selectSize.options[selectSize.options.length] = new Option(packOptions[i].size, packOptions[i].price)
 }
 
-var currPrice = document.getElementById('total');
-var basePrice = 2.49;
+let currPrice = document.getElementById("productprice");
 var glazingPrice = 0;
 var packPrice = 1;
-currPrice.innertext = (basePrice + glazingPrice) * packPrice;
+var basePrice = 2.49;
+currPrice.innerText = (basePrice + glazingPrice) * packPrice;
 
 function glazingChange(element) {
   const priceChangeGlaze = parseFloat(element.value);
