@@ -76,3 +76,4 @@ function packChange(element) {
 }
 
 currPrice.innertext = (basePrice + glazingPrice) * packPrice;
+
