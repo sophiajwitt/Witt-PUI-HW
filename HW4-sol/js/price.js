@@ -23,7 +23,7 @@ const queryString = window.location.search;
 const params = new URLSearchParams(queryString);
 const rollType = params.get("roll");
 // update page title
-document.getElementById("banner").innerHTML = rollType + 'Cinnamon Roll';
+document.getElementById("banner").innerHTML = rollType + ' Cinnamon Roll';
 // update base price
 basePrice = rolls[rollType].rollBasePrice;
 // update image
@@ -70,8 +70,8 @@ function glazingChange(element) {
 	updateTotalPrice();
 }
 // update current glazing choice
-let text= element.options[element.selectedIndex].text;
-currGlazing = text;
+let glazeText= element.options[element.selectedIndex].text;
+currGlazing = glazeText;
 
 /* Record the current pack option and update the total price */
 function packChange(element) {
@@ -79,8 +79,8 @@ function packChange(element) {
 	updateTotalPrice();
 }
 //update current pack size
-let text= element.options[element.selectedIndex].text;
-currSize = text;
+let packText= element.options[element.selectedIndex].text;
+currSize = glazeText;
 
 function updateTotalPrice() {
 	const totalPrice = (basePrice + currentGlazingPrice) * currentPackPrice;
