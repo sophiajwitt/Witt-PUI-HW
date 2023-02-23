@@ -1,4 +1,38 @@
+/* initialize variables */
+let cart = [];
+let currGlazing;
+let currSize;
+let currPrice;
 
+const basePrice = 2.49;
+let currentGlazingPrice = 0; // keep original
+let currentPackPrice = 1; // 1
+
+/* initialize cinnamon roll class */
+class Roll {
+  constructor(rollType, rollGlazing, packSize, basePrice) {
+    this.type = rollType;
+    this.glazing = rollGlazing;
+    this.size = packSize;
+    this.basePrice = basePrice;
+  }
+}
+
+/* update product.html based on roll type */
+const queryString = window.location.search;
+const params = new URLSearchParams(queryString);
+const rollType = params.get("roll");
+// update page title
+document.getElementById("banner").innerHTML = rollType + 'Cinnamon Roll';
+// update base price
+basePrice = rolls[rollType].rollBasePrice;
+// update image
+const productImageElement = document.querySelector('.product-img');
+productImageElement.src = ".images/products/" + rolls[rollType].imageFile;
+
+
+
+/* initialize glazing */
 const glazingPrices = {
 	"Keep original": 0.0,
 	"Sugar milk": 0.0,
@@ -9,10 +43,6 @@ const glazingPrices = {
 const packPrices = {
 	"1": 1, "3": 3, "6": 5, "12": 10
 };
-
-const basePrice = 2.49;
-let currentGlazingPrice = 0; // keep original
-let currentPackPrice = 1; // 1
 
 /* Populate glazing options with corresponding price adaptation values */
 const glazingSelect = document.querySelector("select#glazing-options");
@@ -39,15 +69,28 @@ function glazingChange(element) {
 	currentGlazingPrice = parseFloat(element.value);
 	updateTotalPrice();
 }
+let text= element.options[element.selectedIndex].text;
+currGlazing = text;
 
 /* Record the current pack option and update the total price */
 function packChange(element) {
 	currentPackPrice = parseFloat(element.value);
 	updateTotalPrice();
 }
+let text= element.options[element.selectedIndex].text;
+currSize = text;
 
 function updateTotalPrice() {
 	const totalPrice = (basePrice + currentGlazingPrice) * currentPackPrice;
 	const totalPriceField = document.querySelector("#add-cart span");
 	totalPriceField.textContent = "$" + totalPrice.toFixed(2);
+  currPrice = priceToDisplay.toFixed(2);
 }
+
+/* update cart */
+function updateCart(event) {
+  const addOrder = new Roll(rollType, currGlazing, currSize,currPrice);
+  cart.push(addOrder);
+  console.log(cart);
+}
+document.querySelector('#detail-cart-button').addEventListener('click',updateCart);
