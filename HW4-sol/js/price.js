@@ -27,7 +27,7 @@ document.getElementById("banner").innerHTML = rollType + ' Cinnamon Roll';
 // update base price
 basePrice = rolls[rollType].rollBasePrice;
 // update image
-const productImageElement = document.querySelector('.product-img');
+const productImageElement = document.querySelector('.product-image');
 productImageElement.src = ".images/products/" + rolls[rollType].imageFile;
 
 
