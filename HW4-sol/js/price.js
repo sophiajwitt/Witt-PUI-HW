@@ -4,7 +4,7 @@ let currGlazing;
 let currSize;
 let currPrice;
 
-const basePrice = 2.49;
+let basePrice = 2.49;
 let currentGlazingPrice = 0; // keep original
 let currentPackPrice = 1; // 1
 
@@ -24,12 +24,11 @@ const params = new URLSearchParams(queryString);
 const rollType = params.get("roll");
 // update page title
 document.getElementById("banner").innerHTML = rollType + ' Cinnamon Roll';
-// update base price
-basePrice = rolls[rollType].rollBasePrice;
 // update image
 const productImageElement = document.querySelector('.product-image');
-productImageElement.src = ".images/products/" + rolls[rollType].imageFile;
-
+productImageElement.src = "images/products/" + rolls[rollType].imageFile;
+// update base price
+basePrice = rolls[rollType].basePrice;
 
 
 /* initialize glazing */
@@ -68,25 +67,26 @@ for (const [pack, price] of Object.entries(packPrices)) {
 function glazingChange(element) {
 	currentGlazingPrice = parseFloat(element.value);
 	updateTotalPrice();
+  // update current glazing choice
+  let glazeText= element.options[element.selectedIndex].text;
+  currGlazing = glazeText;
 }
-// update current glazing choice
-let glazeText= element.options[element.selectedIndex].text;
-currGlazing = glazeText;
+
 
 /* Record the current pack option and update the total price */
 function packChange(element) {
 	currentPackPrice = parseFloat(element.value);
 	updateTotalPrice();
+  //update current pack size
+  let packText= element.options[element.selectedIndex].text;
+  currSize = packText;
 }
-//update current pack size
-let packText= element.options[element.selectedIndex].text;
-currSize = glazeText;
 
 function updateTotalPrice() {
 	const totalPrice = (basePrice + currentGlazingPrice) * currentPackPrice;
 	const totalPriceField = document.querySelector("#add-cart span");
 	totalPriceField.textContent = "$" + totalPrice.toFixed(2);
-  currPrice = priceToDisplay.toFixed(2);
+  currPrice = totalPrice.toFixed(2);
 }
 
 /* update cart */
@@ -95,4 +95,4 @@ function updateCart(event) {
   cart.push(addOrder);
   console.log(cart);
 }
-document.querySelector('#detail-cart-button').addEventListener('click',updateCart);
+document.querySelector('#add-cart span').addEventListener('click',updateCart);
