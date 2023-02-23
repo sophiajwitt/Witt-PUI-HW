@@ -69,6 +69,7 @@ function glazingChange(element) {
 	currentGlazingPrice = parseFloat(element.value);
 	updateTotalPrice();
 }
+// update current glazing choice
 let text= element.options[element.selectedIndex].text;
 currGlazing = text;
 
@@ -77,6 +78,7 @@ function packChange(element) {
 	currentPackPrice = parseFloat(element.value);
 	updateTotalPrice();
 }
+//update current pack size
 let text= element.options[element.selectedIndex].text;
 currSize = text;
 
