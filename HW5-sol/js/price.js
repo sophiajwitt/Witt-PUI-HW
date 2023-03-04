@@ -8,20 +8,6 @@ let basePrice = 2.49;
 let currentGlazingPrice = 0; // keep original
 let currentPackPrice = 1; // 1
 
-/* glazing and price dictionary */
-const glazingPriceChanges = {
-    'Keep Original': 0.00,
-    'Sugar Milk': 0.00,
-    'Vanilla Milk': 0.50,
-    'Double Chocolate': 1.50,
-  };
-  
-const packSizePriceChanges = {
-    '1': 1,
-    '3': 3,
-    '6': 5,
-    '12': 10,
-  };
 
 /* initialize cinnamon roll class */
 class Roll {
