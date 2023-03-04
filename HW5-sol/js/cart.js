@@ -11,6 +11,21 @@ cart.push(rollFour);
 
 console.log(cart);
 
+function addElement(item) {
+    const rollImage = document.querySelector('.product-image');
+    const rollTypeText = document.getElementById('roll-name');
+    const glazingChoiceText = document.getElementById('glazing-name')
+    const packSizeText = document.getElementById('pack-size-label')
+    const priceText = document.querySelector('.item-price');
+  
+    rollImage.src = item.image;
+    console.log(item.type);
+    rollTypeText.innerText = item.type + ' Cinnamon Roll';
+    glazingChoiceText.innerText = "Glazing: " + item.glazing;
+    packSizeText.innerText = "Pack Size: " + item.size;
+    priceText.innerText = "$" + item.currentPrice;
+}
+
 function initializeCart(item) {
     const template = document.getElementByID('cart-item-template');
     const clone = template.content.cloneNode(true);
