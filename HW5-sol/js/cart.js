@@ -4,14 +4,18 @@ const rollTwo = new Roll ('Walnut', 'Vanilla Milk', 12, 3.49);
 const rollThree = new Roll('Raisin', 'Sugar Milk', 3, 2.99);
 const rollFour = new Roll('Apple', 'Original', 3, 3.49);
 
-cart.push(rollOne);
-cart.push(rollTwo);
-cart.push(rollThree);
-cart.push(rollFour);
+/* initialize cart */
+let cartInit = new set();
 
-console.log(cart);
+/* push initial rolls to cart */
+cartInit.push(rollOne);
+cartInit.push(rollTwo);
+cartInit.push(rollThree);
+cartInit.push(rollFour);
 
-function addElement(item) {
+console.log(cartInit);
+
+function updateRoll(item) {
     const rollImage = document.querySelector('.product-image');
     const rollTypeText = document.getElementById('roll-name');
     const glazingChoiceText = document.getElementById('glazing-name')
@@ -23,7 +27,7 @@ function addElement(item) {
     rollTypeText.innerText = item.type + ' Cinnamon Roll';
     glazingChoiceText.innerText = "Glazing: " + item.glazing;
     packSizeText.innerText = "Pack Size: " + item.size;
-    priceText.innerText = "$" + item.currentPrice;
+    priceText.innerText = "$" + item.priceUpdated;
 }
 
 function initializeCart(item) {
@@ -32,11 +36,30 @@ function initializeCart(item) {
     item.element = clone.querySelector('.cart-item');
     console.log(item.element);
     const cartItems = document.querySelector('.cart-wrapper');
-    cartItems.append(item.element);
+    cartItems.prepend(item.element);
+    updateRoll(item);
+    const removeButton = document.querySelector('.remove');
+    removeButton.addEventListener('click', () => {removeElement(item)});
+    updatePriceTotal();
+}
+
+function removeElement(item) {
+    item.element.remove();
+    cartInit.delete(item);
+    console.log(cartInit.size);
+    updatePriceTotal();
+}
+
+function updatePriceTotal() {
+    let priceTotal = document.querySelector('.total-price');
+    let priceValue = 0;
+    for (let rollVar in cartInit) {
+        priceValue = (Number(calculateTotalPrice) + Number(rollVar.currentPrice)).toFixed(2);
+    }
+    priceTotal.innerText = '$' + priceValue;
 }
 
 for (let item of cart) {
-    console.log(item);
     initializeCart(item);
 }
 
