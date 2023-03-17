@@ -83,11 +83,21 @@ class Roll {
         this.glazing =  rollGlazing;
         this.size = packSize;
         this.basePrice = basePrice;
+		this.calculatedPrice = (this.basePrice + glazingPrices[this.glazing]) * packPrices[this.size];
+        this.image = "images/products/" + rolls[this.type]['imageFile'];
     }
 }
 
-function printCart() {
+// updating the cart
+var cart = JSON.parse(localStorage.getItem("cart"));
+if (cart == null) {
+    cart = []; 
+    localStorage.setItem("cart", JSON.stringify(cart)); 
+}
+
+function addToCart() {
 	const roll = new Roll(rollType, glazingOption, packOption, basePrice);
 	cart.push(roll);
+	localStorage.setItem("cart", JSON.stringify(cart));
 	console.log(cart);
 }
