@@ -9,8 +9,17 @@ const packPrices = {
     "1" : 1, "3" : 3, "6" : 5, "12" : 10
 };
 
-// the cart array
-const cartItems = [];
+// retriving the cart from local storage
+var cart = JSON.parse(localStorage.getItem("cart"));
+
+// null check
+if (cart == null) {
+    cart = []; 
+    localStorage.setItem("cart", JSON.stringify(cart)); 
+    console.log(cart);
+}
+console.log(cart);
+
 // used to create unique ID for each role, based on the order in which it's added to cart
 let rollCounter = 0;
 
@@ -21,15 +30,8 @@ class Roll {
         this.size = packSize;
         this.basePrice = rollPrice;
         this.calculatedPrice = (this.basePrice + glazingPrices[this.glazing]) * packPrices[this.size];
+        this.image = "images/products/" + rolls[this.type]['imageFile'];
     }
-}
-
-// initialize the cart with 4 rolls
-function initializeCart() {
-    cartItems.push(new Roll("Original", "Sugar milk", 1, rolls["Original"]["basePrice"]));
-    cartItems.push(new Roll("Walnut", "Vanilla milk", 12, rolls["Walnut"]["basePrice"]));
-    cartItems.push(new Roll("Raisin", "Sugar milk", 3, rolls["Raisin"]["basePrice"]));
-    cartItems.push(new Roll("Apple", "Keep original", 3, rolls["Apple"]["basePrice"]));
 }
 
 // add a Roll instance to the DOM
