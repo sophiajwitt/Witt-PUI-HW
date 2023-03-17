@@ -13,7 +13,6 @@ let glazingOption = "Keep original";
 let packOption = 1;
 let basePrice = 0;
 let rollType = NaN;
-let cart = [];
 
 populateCinnamonData();
 populateSelectOptions();

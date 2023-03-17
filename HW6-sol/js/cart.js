@@ -64,7 +64,7 @@ function addRollToPage(roll) {
     let currentRollCounter = rollCounter;
     cartItemElement.querySelector(".remove").onclick = function() {
         cartContainer.querySelector(`#roll-${currentRollCounter}`).remove();
-        cartItems.splice(cartItems.indexOf(roll), 1);
+        cart.splice(cart.indexOf(roll), 1);
         updateTotalPrice();
     }
 
@@ -75,11 +75,10 @@ function addRollToPage(roll) {
 // update the total price field based on the current cart
 function updateTotalPrice() {
     let totalPrice = 0;
-    cartItems.forEach(roll => totalPrice += roll.calculatedPrice);
+    cart.forEach(roll => totalPrice += roll.calculatedPrice);
     const totalPriceElement = document.querySelector(".total-price");
     totalPriceElement.innerText = "$ " + totalPrice.toFixed(2);
 }
 
-initializeCart();
-cartItems.forEach(addRollToPage);
+cart.forEach(addRollToPage);
 updateTotalPrice();
