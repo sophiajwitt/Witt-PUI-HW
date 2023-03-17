@@ -78,6 +78,8 @@ function updateTotalPrice() {
     cart.forEach(roll => totalPrice += roll.calculatedPrice);
     const totalPriceElement = document.querySelector(".total-price");
     totalPriceElement.innerText = "$ " + totalPrice.toFixed(2);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    console.log(cart);
 }
 
 cart.forEach(addRollToPage);
